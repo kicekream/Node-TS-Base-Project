@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import config from "config";
+
 
 export interface UserDocument {
     email: string;
-    name: string;
+    first_name: string;
+    last_name: string;
     password: string;
     createdAt: Date;
     updatedAt: Date;
@@ -12,9 +13,10 @@ export interface UserDocument {
 
 const userSchema = new mongoose.Schema<UserDocument>({
     email: {type: String, required: true, unique: true},
-    name: {type: String, required: true},
+    first_name: {type: String, required: true},
+    last_name: {type: String, required: true},
     password: {type: String, required: true}
-}, {timestamps: true})
+}, {timestamps: true});
 
 const User = mongoose.model<UserDocument>("User", userSchema);
 
