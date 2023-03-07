@@ -9,14 +9,20 @@ export interface UserDocument {
     password: string;
     createdAt: Date;
     updatedAt: Date;
+    comparePassword(candidatePassword:string): Promise<Boolean>;
 }
 
 const userSchema = new mongoose.Schema<UserDocument>({
-    email: {type: String, required: true, unique: true},
+    email: {type: String, required: true, unique: true, minlength: 4},
     first_name: {type: String, required: true},
     last_name: {type: String, required: true},
     password: {type: String, required: true}
 }, {timestamps: true});
+
+userSchema.methods.comparePassword = async function (candidatePassword: string): Promise<boolean> {
+    const user = this as UserDocument;
+    return bcrypt.compare(candidatePassword, user.password).catch((e) => false);
+}
 
 const User = mongoose.model<UserDocument>("User", userSchema);
 

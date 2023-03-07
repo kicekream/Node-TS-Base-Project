@@ -2,6 +2,9 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import config from "config";
 import User, {UserDocument} from "../models/user.model";
+
+import { createUser } from "../services/user.service";
+
 import log from "../logger";
 
 export async function createUserHandler(req: Request, res: Response) {
@@ -16,7 +19,13 @@ export async function createUserHandler(req: Request, res: Response) {
         const hash = await bcrypt.hash(password, salt)
         password = hash;
 
-        const newUser = await User.create({email, first_name, last_name, password, ade: "Ada"})
+        const newUser = await createUser(req.body)
+
+        if(!newUser) {
+            return res.status(400).send("An error occurred creating account");
+        }
+        log.info(newUser,"User Registered")
+        res.status(200).send("Thanks for sign up. Signup successful")
     } catch(e: any) {
         log.error(e)
         return res.status(409).send(e.message);
