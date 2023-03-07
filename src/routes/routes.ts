@@ -8,6 +8,6 @@ export default function(app: Express) {
         res.sendStatus(200)
     });
 
-    app.use(user);
+    app.use(user)
     // app.use(auth);
 }
