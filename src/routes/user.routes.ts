@@ -7,6 +7,6 @@ import validateRequest from "../middleware/validateRequest"
 import { createUserSchema } from "../schema/user.schema";
 
 
-router.post("/api/user/register", validateRequest(createUserSchema), createUserHandler);
+router.post("/api/register", validateRequest(createUserSchema), createUserHandler);
 
 export default router;

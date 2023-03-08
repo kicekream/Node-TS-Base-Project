@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import config from "config";
-import { omit } from "lodash";
+// import { omit } from "lodash";
 import User, {UserDocument} from "../models/user.model";
 
 import { createUser } from "../services/user.service";
@@ -11,7 +11,7 @@ import { CreateUserInput } from "../schema/user.schema";
 
 export async function createUserHandler(req: Request<{}, {}, CreateUserInput["body"]>, res: Response) {
     try {
-        let {email, first_name, last_name, password} = req.body
+        let {email, password} = req.body
         const findUser = await User.findOne({email});
 
         if(findUser)
