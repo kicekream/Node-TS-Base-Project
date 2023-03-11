@@ -5,11 +5,11 @@ const log = logger({
     target: "pino-pretty",
     options: {
       colorize: true,
-      translateTime: 'SYS:standard'
+      translateTime: "SYS:standard",
     },
   },
   base: {
     pid: false,
-  }
+  },
 });
 export default log;

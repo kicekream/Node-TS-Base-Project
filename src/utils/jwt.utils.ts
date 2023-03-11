@@ -7,17 +7,17 @@ export function generateAuthToken(
   data: Object,
   options?: jwt.SignOptions | undefined
 ) {
-  return jwt.sign(data, privateKey);
+  return jwt.sign(data, privateKey, options);
 }
 
 export function decode(token: string) {
   try {
     const decoded = jwt.verify(token, privateKey);
     return {
-        valid: true,
-        expired: false,
-        decoded
-      };
+      valid: true,
+      expired: false,
+      decoded,
+    };
   } catch (error: any) {
     return {
       valid: false,

@@ -2,7 +2,7 @@ import mongoose, { mongo } from "mongoose";
 import { UserDocument } from "./user.model";
 
 export interface SessionDocument extends mongoose.Document {
-  user: UserDocument['_id']
+  user: UserDocument["_id"];
   valid: boolean;
   userAgent: string;
   createdAt: Date;
@@ -11,7 +11,7 @@ export interface SessionDocument extends mongoose.Document {
 
 const sessionSchema = new mongoose.Schema<SessionDocument>(
   {
-    user: { type: mongoose.Schema.Types.ObjectId, ref: "User"},
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     valid: { type: Boolean, default: true },
     userAgent: { type: String },
   },
