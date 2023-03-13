@@ -1,0 +1,2 @@
+Steps to configure and test the Role-Based Access Control successfully:
+    1:Hit the /api/admin/all-permissions with the postman request. Ensure your req.body.code matches the PERMISSION_CODE in your environment variable.

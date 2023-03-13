@@ -1,0 +1,18 @@
+export const adminPermission = {
+  READ_USER: "read_user",
+  WRITE_USER: "write_user",
+  MODIFY_USER: "modify_user",
+  DELETE_USER: "delete_user",
+  READ_ADMIN: "read_admin",
+  WRITE_ADMIN: "write_admin",
+  MODIFY_ADMIN: "modify_admin",
+  DELETE_ADMIN: "delete_admin",
+  WRITE_PRODUCT: "write_product",
+  READ_PRODUCT: "read_product",
+  MODIFY_PRODUCT: "modify_product",
+  DELETE_PRODUCT: "delete_product",
+  WRITE_ROLE: "write_role",
+  READ_ROLE: "read_role",
+  MODIFY_ROLE: "modify_role",
+  DELETE_ROLE: "delete_role",
+};

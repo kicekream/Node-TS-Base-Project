@@ -5,4 +5,5 @@ export default {
   privateKey: process.env.JWTPRIVATEKEY,
   accessTokenTtl: process.env.ACCESSTOKENTTL,
   refreshTokenTtl: process.env.REFRESHTOKENTTL,
+  permissionCode: process.env.PERMISSION_CODE,
 };
