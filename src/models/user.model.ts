@@ -6,6 +6,8 @@ export interface UserDocument extends mongoose.Document {
   first_name: string;
   last_name: string;
   password: string;
+  isAdmin: boolean;
+  adminRole: string;
   createdAt: Date;
   updatedAt: Date;
   comparePassword(candidatePassword: string): Promise<Boolean>;
@@ -17,6 +19,8 @@ const userSchema = new mongoose.Schema<UserDocument>(
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
     password: { type: String, required: true },
+    isAdmin: { type: Boolean, default: false },
+    adminRole: { type: String },
   },
   { timestamps: true }
 );
